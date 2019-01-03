@@ -5,9 +5,10 @@ var Categoria = require('../model/categoria');
 
 // define a rota para listar as categorias cadastradas
 router.get('/', function(req, res) {
+  //if(req.locals.msg)
   Categoria.find({}).lean().exec(
     function (e, docs) {
-       res.render('categoria/index.ejs', { "Categorias": docs });
+       res.render('categoria/index.ejs', { "Categorias": docs, 'msg': res.locals.msg });
   });
 });
 
@@ -45,17 +46,14 @@ router.post('/edit/:id', function(req, res) {
 
 // define a rota para deletar
 router.get('/delete/:id', function(req, res) {
-  Categoria.findById(req.params.id).remove(function(err){
-    if(err){
-      var msg = err
-    } else{
-      var msg = "Removido com sucesso!"
-    }
-    Categoria.find({}).lean().exec(
-      function (e, docs) {
-         res.render('/index.ejs', { "Categorias": docs, 'msg' : msg });
-    });   
-  })  
+  Categoria.findByIdAndDelete(req.params.id,function(){
+    res.locals.msg = "Excluído com sucesso!"
+    res.redirect('/categoria/')    
+    //Categoria.find({}).lean().exec(
+      //function (e, docs) {
+         //res.render('categoria/index.ejs', { "Categorias": docs, 'msg': "Deletado com sucesso!" });
+    //}); 
+  })
 });
 
 module.exports = router;

@@ -1,10 +1,12 @@
 var Categoria = require('../model/categoriaModel');
 
 exports.index = function(req, res) {
-            console.log(req.body.ok)
+            if(req.query.ok){
+              var msg = "Deletado com sucesso!"
+            }
             Categoria.find({}).lean().exec(
               function (e, docs) {
-                 res.render('categoria/index.ejs', { "Categorias": docs });
+                 res.render('categoria/index.ejs', { "Categorias": docs, 'msg': msg });
             });
         };
 
@@ -14,7 +16,7 @@ exports.abrirAdd = function(req, res) {
         
         exports.salvarAdd = function(req, res) {
             let categoria = new Categoria({
-              nome: req.body.txtGenero
+              nome: req.body.txtCategoria
             })
             categoria.save(function(err){
               if(err){
@@ -31,7 +33,9 @@ exports.abrirAdd = function(req, res) {
           };
 
         exports.salvarEdit = function(req, res) {
-  
+            Categoria.findByIdAndUpdate(req.params.id,{$set: {nome: req.body.txtCategoria}},{ new: true },function(err,categoria){
+              res.render("categoria/edit.ejs",{'categoria':categoria, 'msg':'Alterado com sucesso!'})
+            })
         };
 
         exports.deletar = function(req, res) {

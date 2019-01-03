@@ -1,7 +1,7 @@
 const express =  require('express')
 const bodyParser = require('body-parser')
 const app = express()
-var categoria = require("./routes/categoria")
+var categoria = require("./routes/categoriaRoute")
 var editora = require('./routes/editora')
 var path = require('path');
 
@@ -13,4 +13,6 @@ app.listen(3000,function(){
     console.log("Servidor funcionando!")
 })
 
-app.use('/categoria',categoria)
+app.use('/categoria/',categoria)
+//app.use('/editora',editora)
+//app.use('/',)

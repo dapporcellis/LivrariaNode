@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv-safe": "^6.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "mongoose": "^5.4.0",

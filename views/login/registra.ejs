@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="../img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Administrador - Login
+    Administrador - Registre-se
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -39,7 +39,7 @@
                     <div class="block block-four"></div>
                     <a href="#">
                       <img class="avatar" src="../img/logo.jpg" alt="...">
-                      <h5 class="title">Logando</h5>
+                      <h5 class="title">Registrando</h5>
                     </a>
                     <p class="description">
                       Sistema Administrativo da Livraria
@@ -47,7 +47,15 @@
                   </div>
                 </p>
                 <p class="card-description">
-                <form action="/login" method="POST">
+                <form action="/registra" method="POST">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Nome</label>
+                          <input type="text" class="form-control" name="txtNome" placeholder="Nome">
+                        </div>
+                      </div>
+                    </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
@@ -68,19 +76,14 @@
                     <button type="submit" class="btn btn-fill btn-primary">Entrar</button>
                   
                   </form>
-                  <% if (typeof msg != "undefined") { %>
+                  <% if(msg) { %>
                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
                         <strong>ERRO:</strong> <%= msg %>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <i class="tim-icons icon-simple-remove"></i>
                         </button>
                     </div>
-                    <% } %>
-
-                    <p>
-                        <a href="/users/forgot">Esqueceu sua senha?</a> | <a href="/users/signup">Não possui cadastro?</a>
-                    </p>
-                
+                    <% } %>               
                 </p>
               </div>
               <div class="card-footer ">

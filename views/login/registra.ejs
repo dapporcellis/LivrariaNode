@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="../img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Administrador - Registre-se
+    Administrador - Registrar
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -73,17 +73,23 @@
                       </div>
                     </div>
                   
-                    <button type="submit" class="btn btn-fill btn-primary">Entrar</button>
+                    <button type="submit" class="btn btn-fill btn-primary">Cadastrar</button>
                   
                   </form>
-                  <% if(msg) { %>
+                  <% if (typeof msg != "undefined") { %>
                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                        <strong>ERRO:</strong> <%= msg %>
+                        <%= msg %>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <i class="tim-icons icon-simple-remove"></i>
                         </button>
                     </div>
-                    <% } %>               
+                    <% } %>
+                  
+                    <p>
+                      <a href="../">Logar?</a>
+                  </p>
+                   
+                
                 </p>
               </div>
               <div class="card-footer ">

@@ -3,20 +3,23 @@ var passport = require('../config/passport')
 var bcrypt = require('bcryptjs');
 
 exports.index = function (req, res) {
+  if(req.query.fail)
+  res.render("login/login.ejs",{ 'msg':"Voce não está logado"})
+  if(req.query.senha)
+  res.render("login/login.ejs",{ 'msg':"Email ou senha incorretos"})
+  else
   res.render("login/login.ejs")
 };
 
-exports.logar = function (req, res){
-  //console.log(req.body.txtEmail)
-  passport.authenticate('local',{successRedirect: '/genero/', failureRedirect: '/'})
-};
+exports.logar = passport.authenticate('local',{successRedirect: '/genero/', failureRedirect: '/?senha=erro'})
 
 exports.abrirRegistra = function(req,res){
   res.render("login/registra.ejs")
 };
 
 exports.sair = function(req,res){
-
+    req.logout();
+    res.redirect('/?fail=1');
 };
 
 exports.registrar = function(req,res){
@@ -41,5 +44,4 @@ exports.registrar = function(req,res){
       });
     });
   });
-
 };

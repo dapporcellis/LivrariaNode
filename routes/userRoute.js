@@ -15,7 +15,7 @@ router.get('/registra', userCtr.abrirRegistra);
 router.post('/registra', userCtr.registrar);
 
 // define a rota registrar
-router.post('/logout', userCtr.sair);
+router.get('/logout', userCtr.sair);
 
 
 module.exports = router;

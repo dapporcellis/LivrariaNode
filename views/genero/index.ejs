@@ -2,72 +2,74 @@
 
 
 <div class="card ">
-        <div class="card-header">
-          <h4 class="card-title">Genero</h4>
-        </div>
-        <div class="card-body">
-            <form class="form-inline" method="POST">
-                
-                        <div class="form-group mb-8">
-                            <label for="filtro" class="sr-only">Pesquisa</label>
-                            <input type="text" name="txtFiltro" id="filtro" required class="form-control" placeholder="Filtro" >
-                        </div>
-                    
-                      <button type="submit" class="btn btn-primary btn-round text-center mb-4">
-                          <i class="tim-icons icon-zoom-split"></i> Pesquisa
-                      </button>
-                 
-            </form>
+  <div class="card-header">
+    <h4 class="card-title">Genero</h4>
+  </div>
+  <div class="card-body">
+    <form class="form-inline" method="POST">
 
-              <a class="btn btn-primary btn-round text-center" href="add">
-                  <i class="tim-icons icon-simple-add"></i> Adiciona
-              </a>
-
-          <div class="table-responsive">
-            <table class="table tablesorter " id="">
-              <thead class=" text-primary">
-                <th>
-                  Genero
-                </th>
-                <th>
-                  Edita
-                </th>
-                <th>
-                  Deleta
-                </th>
-              </thead>
-              <tbody>
-                    <% Generos.forEach(function(genero){ %>
-                      <tr>
-                          
-                          <td><%= genero.nome %></td>
-                          <td>
-                              <a class="btn btn-info btn-fab btn-icon btn-round" href="edit/<%= genero._id %>">
-                                  <i class="tim-icons icon-pencil"></i>
-                              </a>
-                          </td>
-                          <td>
-                              <a class="btn btn-primary btn-fab btn-icon btn-round" href="delete/<%= genero._id %>">
-                                  <i class="tim-icons icon-trash-simple"></i>
-                              </a>
-                          </td>
-                      </tr>
-                    <%})%>        
-              </tbody>
-            </table>
-          </div>
-        </div>
-          <div class="card-footer">
-              <!--Testa se tem mensagem-->
-                <% if (typeof msg != "undefined") { %>
-                  <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                        <%= msg %>
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <i class="tim-icons icon-simple-remove"></i>
-                      </button>
-                  </div>
-                <% } %>
-              <!--Fecha o teste-->
-        </div>
+      <div class="form-group mb-8">
+        <label for="filtro" class="sr-only">Pesquisa</label>
+        <input type="text" name="txtFiltro" id="filtro" required class="form-control" placeholder="Filtro">
       </div>
+
+      <button type="submit" class="btn btn-primary btn-round text-center mb-4">
+        <i class="tim-icons icon-zoom-split"></i> Pesquisa
+      </button>
+
+    </form>
+
+    <a class="btn btn-primary btn-round text-center" href="add">
+      <i class="tim-icons icon-simple-add"></i> Adiciona
+    </a>
+
+    <div class="table-responsive">
+      <table class="table tablesorter " id="">
+        <thead class=" text-primary">
+          <th>
+            Genero
+          </th>
+          <th>
+            Edita
+          </th>
+          <th>
+            Deleta
+          </th>
+        </thead>
+        <tbody>
+          <% Generos.forEach(function(genero){ %>
+          <tr>
+
+            <td>
+              <%= genero.nome %>
+            </td>
+            <td>
+              <a class="btn btn-info btn-fab btn-icon btn-round" href="edit/<%= genero._id %>">
+                <i class="tim-icons icon-pencil"></i>
+              </a>
+            </td>
+            <td>
+              <a class="btn btn-primary btn-fab btn-icon btn-round" href="delete/<%= genero._id %>">
+                <i class="tim-icons icon-trash-simple"></i>
+              </a>
+            </td>
+          </tr>
+          <%})%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer">
+    <!--Testa se tem mensagem-->
+    <% if (typeof msg != "undefined") { %>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="tim-icons icon-simple-remove"></i>
+      </button>
+    </div>
+    <% } %>
+    <!--Fecha o teste-->
+  </div>
+</div>
 <%- include('../footer'); -%>

@@ -3,7 +3,7 @@ var router = express.Router();
 var userCtr = require('../controle/userCtr')
 var multer = require('multer')
 
-const upload = multer({dest: 'public/img/fotouser'});
+const upload = multer({ dest: 'public/img/fotouser' });
 
 // define a rota abrir janela de login
 router.get('/', userCtr.index);
@@ -15,7 +15,7 @@ router.post('/login', userCtr.logar);
 router.get('/registra', userCtr.abrirRegistra);
 
 // define a rota abrir registrar
-router.post('/registra',upload.single('txtFoto'), userCtr.registrar);
+router.post('/registra', upload.single('txtFoto'), userCtr.registrar);
 
 // define a rota registrar
 router.get('/logout', userCtr.sair);

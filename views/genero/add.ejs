@@ -1,43 +1,43 @@
 <%- include('../header'); -%>
 
 <div class="card">
-        <div class="card-header">
-            <h5 class="title">Adiciona Genero</h5>
-        </div>
-        <div class="card-body">
-            <!--MODIFICAR PARA ADD-->
-            <form method="POST">
-                <div class="row">
-                    <div class="col-md-5 pr-md-1">
-                        <div class="form-group">
-                            <label>Genero</label>
-                            <input type="text" name="txtGenero" required class="form-control" placeholder="Genero" >
-                        </div>
+    <div class="card-header">
+        <h5 class="title">Adiciona Genero</h5>
+    </div>
+    <div class="card-body">
+        <!--MODIFICAR PARA ADD-->
+        <form method="POST">
+            <div class="row">
+                <div class="col-md-5 pr-md-1">
+                    <div class="form-group">
+                        <label>Genero</label>
+                        <input type="text" name="txtGenero" required class="form-control" placeholder="Genero">
                     </div>
                 </div>
-    
-                <button class="btn btn-primary btn-round text-center" type="submit">
-                    <i class="tim-icons icon-cloud-upload-94"></i> Salvar
-                </button>
-                <a class="btn btn-primary btn-round text-center" href="../genero/">
-                    <i class="tim-icons icon-bullet-list-67"></i> Listar
-                </a>
-            </form>
-        </div>
-    
-        <div class="card-footer">
-            <!--Testa se tem mensagem-->
-            <% if (typeof msg != "undefined") { %>
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                      <%= msg %>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <i class="tim-icons icon-simple-remove"></i>
-                    </button>
-                </div>
-              <% } %>
-            <!--Fecha o teste-->
-        </div>
-    </div>
+            </div>
+
+            <button class="btn btn-primary btn-round text-center" type="submit">
+                <i class="tim-icons icon-cloud-upload-94"></i> Salvar
+            </button>
+            <a class="btn btn-primary btn-round text-center" href="../genero/">
+                <i class="tim-icons icon-bullet-list-67"></i> Listar
+            </a>
+        </form>
     </div>
 
-<%- include('../footer'); -%>   
+    <div class="card-footer">
+        <!--Testa se tem mensagem-->
+        <% if (typeof msg != "undefined") { %>
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <%= msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="tim-icons icon-simple-remove"></i>
+            </button>
+        </div>
+        <% } %>
+        <!--Fecha o teste-->
+    </div>
+</div>
+</div>
+
+<%- include('../footer'); -%>

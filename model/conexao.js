@@ -4,4 +4,4 @@ const mongoose = require("mongoose")
 mongoose.connect(uri, { useNewUrlParser: true })
 mongoose.set('useFindAndModify', false);
 
-module.exports =  mongoose
+module.exports = mongoose

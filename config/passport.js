@@ -4,12 +4,10 @@ var User = require('../model/userModel');
 var bcrypt = require('bcryptjs')
 
   passport.serializeUser(function(user, done) {
-    console.log('oi')
     done(null, user.id);
   });
   
   passport.deserializeUser(function(id, done) {
-    console.log('oi1')
     User.findById(id, function(err, user) {
       done(err, user);
     });

@@ -9,6 +9,9 @@ var UserSchema = Mongoose.Schema({
 	},
 	nome: {
 		type: String
+	},
+	foto: {
+		type: String
 	}
 });
 

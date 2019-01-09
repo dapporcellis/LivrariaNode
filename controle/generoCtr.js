@@ -6,7 +6,7 @@ exports.index = function (req, res) {
   }
   Genero.find({}).lean().exec(
     function (e, docs) {
-      res.render('genero/index.ejs', { "Generos": docs, 'msg': msg });
+      res.render('genero/index.ejs', { "User":req.user.nome, "Foto":req.user.foto, "Generos": docs, 'msg': msg });
     });
 };
 
@@ -14,12 +14,12 @@ exports.filtro = function (req, res) {
   console.log(req.body.txtFiltro)
   Genero.find({ 'nome': new RegExp(req.body.txtFiltro, 'i') }).lean().exec(
     function (e, docs) {
-      res.render('genero/index.ejs', { "Generos": docs });
+      res.render('genero/index.ejs', { "User":req.user.nome, "Foto":req.user.foto, "Generos": docs });
     });
 };
 
 exports.abrirAdd = function (req, res) {
-  res.render("genero/add.ejs")
+  res.render("genero/add.ejs",{ "User":req.user.nome, "Foto":req.user.foto, })
 };
 
 exports.salvarAdd = function (req, res) {
@@ -28,22 +28,22 @@ exports.salvarAdd = function (req, res) {
   })
   genero.save(function (err) {
     if (err) {
-      res.render('genero/add.ejs', { "msg": err })
+      res.render('genero/add.ejs', { "User":req.user.nome, "Foto":req.user.foto, "msg": err })
     } else {
-      res.render('genero/add.ejs', { "msg": 'Adicionado com sucesso' })
+      res.render('genero/add.ejs', { "User":req.user.nome, "Foto":req.user.foto, "msg": 'Adicionado com sucesso' })
     }
   })
 };
 
 exports.abrirEdit = function (req, res) {
   Genero.findById(req.params.id).lean().exec(function (err, genero) {
-    res.render("genero/edit.ejs", { 'genero': genero })
+    res.render("genero/edit.ejs", { "User":req.user.nome, "Foto":req.user.foto, 'genero': genero })
   })
 };
 
 exports.salvarEdit = function (req, res) {
   Genero.findByIdAndUpdate(req.params.id, { $set: { nome: req.body.txtGenero } }, { new: true }, function (err, genero) {
-    res.render("genero/edit.ejs", { 'genero': genero, 'msg': 'Alterado com sucesso!' })
+    res.render("genero/edit.ejs", { "User":req.user.nome, "Foto":req.user.foto, 'genero': genero, 'msg': 'Alterado com sucesso!' })
   })
 };
 

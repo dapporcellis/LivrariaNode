@@ -5,7 +5,7 @@ var bcrypt = require('bcryptjs');
 exports.index = function (req, res) {
   if(req.query.fail)
   res.render("login/login.ejs",{ 'msg':"Voce não está logado"})
-  if(req.query.senha)
+  else if(req.query.senha)
   res.render("login/login.ejs",{ 'msg':"Email ou senha incorretos"})
   else
   res.render("login/login.ejs")
@@ -23,13 +23,16 @@ exports.sair = function(req,res){
 };
 
 exports.registrar = function(req,res){
-  var name = req.body.txtNome;
+  console.log(req.file)
+  var foto = req.file.filename;
+  var nome = req.body.txtNome;
   var email = req.body.txtEmail;
   var password = req.body.txtSenha;
   var newUser = new User({
-    nome: name,
+    nome: nome,
     email: email,
-    senha: password
+    senha: password,
+    foto: foto
   });
 
   bcrypt.genSalt(10, function(err, salt) {

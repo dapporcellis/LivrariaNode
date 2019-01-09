@@ -47,7 +47,7 @@
                   </div>
                 </p>
                 <p class="card-description">
-                <form action="/registra" method="POST">
+                <form action="/registra" method="POST" enctype="multipart/form-data">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
@@ -70,6 +70,14 @@
                           <label>Senha</label>
                           <input type="password" class="form-control" name="txtSenha" placeholder="Senha">
                         </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group-file">
+                              <label for="file">Foto</label>
+                              <input type="file" name="txtFoto" required class="form-control form-control-file">
+                          </div>
                       </div>
                     </div>
                   
